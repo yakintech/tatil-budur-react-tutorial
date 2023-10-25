@@ -28,7 +28,7 @@ function ObjectArraySample2() {
             <tbody>
                 {
                     suppliers && suppliers.map(item => {
-                        return <tr>
+                        return <tr key={item.id}>
                             <td>{item.id}</td>
                             <td>{item.companyName}</td>
                             <td>{item.contactName}</td>
