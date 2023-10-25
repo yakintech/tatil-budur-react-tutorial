@@ -1,5 +1,5 @@
-import CompanyDetail from "./props/CompanyDetail"
-import TBButton from "./props/TBButton"
+import StateArray2 from "./state/StateArray2"
+
 
 function App() {
 
@@ -9,16 +9,13 @@ function App() {
 
 
   return <>
-    <TBButton title="Hello" />
-    <CompanyDetail companyName="Tatilbudur" print={hello} />
+    <StateArray2 />
+    {/* <TBButton title="Hello" />
+    <CompanyDetail companyName="Tatilbudur" print={hello} /> */}
     {/* <ProductDetail name="IPhone" price={5000} description="lorem ipsum"/> */}
     {/* <UserDetail name="Aykut" surname="Arslan" age={20} points={[2, 3, 1, 4]} /> */}
   </>
 
 }
-
-
-
-
 
 export default App
