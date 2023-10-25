@@ -1,6 +1,11 @@
+import JsxMapSample from "./jsx/JsxMapSample"
+import JsxOneWayBinding from "./jsx/JsxOneWayBinding"
 
-function App(){
-  return <h1>Türkiye</h1>
+function App() {
+  return <>
+    <JsxMapSample/>
+  </>
+
 }
 
 

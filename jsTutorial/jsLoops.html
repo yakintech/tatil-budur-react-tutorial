@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let cities = ["İstanbul", "İzmir", "Ankara", "Edirne", "Diyarbakır", "Erzurum"]
+
+    // for(i = 0; i < cities.length; i++)[
+    //     console.log(cities[i])
+    // ]
+
+   var data = cities.forEach(myCallback)
+    console.log('DATA', data);
+
+    function myCallback(a,b,c){
+       // console.log(a);
+        //console.log(b);
+        //console.log(c);
+
+    }
+
+
+    var data2 = cities.map((item,index) => item.toUpperCase())
+
+    console.log(data2);
+
+
+    
+
+
+</script>
+</html>
