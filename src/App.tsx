@@ -1,9 +1,15 @@
-import JsxMapSample from "./jsx/JsxMapSample"
-import JsxOneWayBinding from "./jsx/JsxOneWayBinding"
+import Content from "./template/Content"
+import Footer from "./template/Footer"
+import Header from "./template/Header"
+import Navbar from "./template/Navbar"
+
 
 function App() {
   return <>
-    <JsxMapSample/>
+      <Navbar/>
+      <Header/>
+      <Content/>
+      <Footer/>
   </>
 
 }
