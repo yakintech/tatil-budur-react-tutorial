@@ -1,4 +1,6 @@
-import StateArray2 from "./state/StateArray2"
+import ObjectArraySample from "./state/ObjectArraySample"
+import ObjectArraySample2 from "./state/ObjectArraySample2"
+import StateArray from "./state/StateArray"
 
 
 function App() {
@@ -9,7 +11,9 @@ function App() {
 
 
   return <>
-    <StateArray2 />
+  <ObjectArraySample2/>
+    {/* <ObjectArraySample /> */}
+    {/* <StateArray/> */}
     {/* <TBButton title="Hello" />
     <CompanyDetail companyName="Tatilbudur" print={hello} /> */}
     {/* <ProductDetail name="IPhone" price={5000} description="lorem ipsum"/> */}

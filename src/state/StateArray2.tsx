@@ -6,15 +6,17 @@ function StateArray2() {
 
     const add = () => {
         var randomNumber = Math.floor(Math.random() * 1000);
-        numbers.push(randomNumber);
 
-        var newNumbers = numbers
-        
-        //usestate içerisindeki fonksiyon HER ZAMAN YENİ BİR REFERANS İTER
-        setnumbers(newNumbers)
+        //Eğer bu number dizide varsa EKLEME
+        if (!numbers.includes(randomNumber)) {
+            //usestate içerisindeki fonksiyon HER ZAMAN YENİ BİR REFERANS İSTER
+            setnumbers([...numbers, randomNumber])
+        }
+
+
     }
     return (<>
-
+        <h1>Length: {numbers.length}</h1>
         {/* <button onClick={add}>Add Random Number</button> */}
         <button onClick={() => add()}>Add Random Number</button>
 
