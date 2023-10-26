@@ -7,6 +7,7 @@ import ProductsPage from "./pages/ProductsPage"
 import ProductDetailPage from "./pages/ProductDetailPage"
 import EffectSample from "./effect/EffectSample"
 import EffectDependency from "./effect/EffectDependency"
+import CategoryPage from "./apiOperations/CategoryPage"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     <nav>
       <ul style={{display:'flex', justifyContent:'space-between'}}>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/categories'>Categories</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
         <li><Link to='/products'>Products</Link></li>
@@ -34,8 +36,7 @@ function App() {
         <Route path="/contact" element={<ContactPage/>} />
         <Route path="/products" element={<ProductsPage/>} />
         <Route path="/effectsample" element={<EffectSample/>} />
-
-
+        <Route path="/categories" element={<CategoryPage/>} />
         {/* :id url içerisindeki parametreyi temsil eder */}
         <Route path="/products/:id" element={<ProductDetailPage/>} />
         <Route path="*" element={<NotFound/>} />
