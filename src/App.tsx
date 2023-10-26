@@ -1,23 +1,48 @@
-import ObjectArraySample from "./state/ObjectArraySample"
-import ObjectArraySample2 from "./state/ObjectArraySample2"
-import StateArray from "./state/StateArray"
-
+import { Link, Route, Routes } from "react-router-dom"
+import HomePage from "./pages/HomePage"
+import BlogPage from "./pages/BlogPage"
+import ContactPage from "./pages/ContactPage"
+import NotFound from "./pages/NotFound"
+import ProductsPage from "./pages/ProductsPage"
+import ProductDetailPage from "./pages/ProductDetailPage"
+import EffectSample from "./effect/EffectSample"
+import EffectDependency from "./effect/EffectDependency"
 
 function App() {
 
-  const hello = () => {
-    alert("Print!!")
-  }
 
+  // return <EffectDependency/>
 
   return <>
-  <ObjectArraySample2/>
-    {/* <ObjectArraySample /> */}
-    {/* <StateArray/> */}
-    {/* <TBButton title="Hello" />
-    <CompanyDetail companyName="Tatilbudur" print={hello} /> */}
-    {/* <ProductDetail name="IPhone" price={5000} description="lorem ipsum"/> */}
-    {/* <UserDetail name="Aykut" surname="Arslan" age={20} points={[2, 3, 1, 4]} /> */}
+    <nav>
+      <ul style={{display:'flex', justifyContent:'space-between'}}>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
+        <li><Link to='/products'>Products</Link></li>
+        <li><a href="/products">Products - 2</a></li>
+        <li><a href="/effectsample">Effect Sample</a></li>
+
+
+
+      </ul>
+    </nav>
+
+    <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/blog" element={<BlogPage/>} />
+        <Route path="/contact" element={<ContactPage/>} />
+        <Route path="/products" element={<ProductsPage/>} />
+        <Route path="/effectsample" element={<EffectSample/>} />
+
+
+        {/* :id url içerisindeki parametreyi temsil eder */}
+        <Route path="/products/:id" element={<ProductDetailPage/>} />
+        <Route path="*" element={<NotFound/>} />
+    </Routes>
+
+
+    <footer>Site Footer</footer>
   </>
 
 }
