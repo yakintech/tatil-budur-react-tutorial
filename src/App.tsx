@@ -12,6 +12,8 @@ import CustomersPage from "./apiOperations/CustomersPage"
 import CustomerDetailPage from "./apiOperations/CustomerDetailPage"
 import AddCategory from "./apiOperations/AddCategory"
 import AddProductForm from "./form/AddProductForm"
+import MuiIntro from "./mui/MuiIntro"
+import GridLayout from "./mui/GridLayout"
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
         <li><Link to='/customers'>Customers</Link></li>
         <li><Link to='/addcategory'>Add Category</Link></li>
         <li><Link to='/addproduct'>Add Product</Link></li>
+        <li><Link to='/muiintro'>MUI Intro</Link></li>
+        <li><Link to='/gridlayout'>MUI Grid Layout</Link></li>
 
         {/* <li><a href="/products">Products - 2</a></li>
         <li><a href="/effectsample">Effect Sample</a></li> */}
@@ -49,6 +53,9 @@ function App() {
         <Route path="/customers/:id" element={<CustomerDetailPage/>} />
         <Route path="/addcategory" element={<AddCategory/>} />
         <Route path="/addproduct" element={<AddProductForm/>} />
+        <Route path="/muiintro" element={<MuiIntro/>} />
+        <Route path="/gridlayout" element={<GridLayout/>} />
+
 
 
         {/* :id url içerisindeki parametreyi temsil eder */}
