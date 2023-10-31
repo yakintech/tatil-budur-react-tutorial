@@ -11,6 +11,7 @@ import CategoryPage from "./apiOperations/CategoryPage"
 import CustomersPage from "./apiOperations/CustomersPage"
 import CustomerDetailPage from "./apiOperations/CustomerDetailPage"
 import AddCategory from "./apiOperations/AddCategory"
+import AddProductForm from "./form/AddProductForm"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <li><Link to='/products'>Products</Link></li>
         <li><Link to='/customers'>Customers</Link></li>
         <li><Link to='/addcategory'>Add Category</Link></li>
+        <li><Link to='/addproduct'>Add Product</Link></li>
 
         {/* <li><a href="/products">Products - 2</a></li>
         <li><a href="/effectsample">Effect Sample</a></li> */}
@@ -46,6 +48,8 @@ function App() {
         <Route path="/customers" element={<CustomersPage/>} />
         <Route path="/customers/:id" element={<CustomerDetailPage/>} />
         <Route path="/addcategory" element={<AddCategory/>} />
+        <Route path="/addproduct" element={<AddProductForm/>} />
+
 
         {/* :id url içerisindeki parametreyi temsil eder */}
         <Route path="/products/:id" element={<ProductDetailPage/>} />
