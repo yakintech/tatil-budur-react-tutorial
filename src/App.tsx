@@ -20,8 +20,11 @@ import { useContext } from "react"
 import { FavoritesContextType, favContext } from "./context/FavoritesContext"
 import { CartContext, CartContextType } from "./context/CartContext"
 import CartPage from "./context/CartPage"
+import MemoParent from "./memo/MemoParent"
 
 function App() {
+
+
 
 
   const { favorites } = useContext(favContext) as FavoritesContextType
@@ -40,6 +43,7 @@ function App() {
         <li><Link to='/addcategory'>Add Category</Link></li>
         <li><Link to='/addproduct'>Add Product</Link></li>
         <li><Link to='/muiintro'>MUI Intro</Link></li>
+        <li><Link to='/memo'>Memo</Link></li>
         <li><Link to='/gridlayout'>MUI Grid Layout</Link></li>
         <li><Link to='/datagrid'>MUI DATA Grid</Link></li>
         <li><Link to='/favorites'>Favorites (<span style={{color:'red'}}>{favorites.length}</span>)</Link></li>
@@ -69,6 +73,8 @@ function App() {
       <Route path="/datagrid" element={<DataGridProducts />} />
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="/cart" element={<CartPage />} />
+      <Route path="/memo" element={<MemoParent />} />
+
 
 
 
