@@ -15,15 +15,18 @@ import AddProductForm from "./form/AddProductForm"
 import MuiIntro from "./mui/MuiIntro"
 import GridLayout from "./mui/GridLayout"
 import DataGridProducts from "./mui/DataGridProducts"
+import FavoritesPage from "./context/FavoritesPage"
+import { useContext } from "react"
+import { FavoritesContextType, favContext } from "./context/FavoritesContext"
 
 function App() {
 
 
-  // return <EffectDependency/>
+  const { favorites, setfavorites } = useContext(favContext) as FavoritesContextType
 
   return <>
     <nav>
-      <ul style={{display:'flex', justifyContent:'space-between'}}>
+      <ul style={{ display: 'flex', justifyContent: 'space-between' }}>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/categories'>Categories</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
@@ -35,6 +38,7 @@ function App() {
         <li><Link to='/muiintro'>MUI Intro</Link></li>
         <li><Link to='/gridlayout'>MUI Grid Layout</Link></li>
         <li><Link to='/datagrid'>MUI DATA Grid</Link></li>
+        <li><Link to='/favorites'>Favorites (<span style={{color:'red'}}>{favorites.length}</span>)</Link></li>
 
         {/* <li><a href="/products">Products - 2</a></li>
         <li><a href="/effectsample">Effect Sample</a></li> */}
@@ -45,31 +49,32 @@ function App() {
     </nav>
 
     <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/blog" element={<BlogPage/>} />
-        <Route path="/contact" element={<ContactPage/>} />
-        <Route path="/products" element={<ProductsPage/>} />
-        <Route path="/effectsample" element={<EffectSample/>} />
-        <Route path="/categories" element={<CategoryPage/>} />
-        <Route path="/customers" element={<CustomersPage/>} />
-        <Route path="/customers/:id" element={<CustomerDetailPage/>} />
-        <Route path="/addcategory" element={<AddCategory/>} />
-        <Route path="/addproduct" element={<AddProductForm/>} />
-        <Route path="/muiintro" element={<MuiIntro/>} />
-        <Route path="/gridlayout" element={<GridLayout/>} />
-        <Route path="/datagrid" element={<DataGridProducts/>} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/blog" element={<BlogPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/products" element={<ProductsPage />} />
+      <Route path="/effectsample" element={<EffectSample />} />
+      <Route path="/categories" element={<CategoryPage />} />
+      <Route path="/customers" element={<CustomersPage />} />
+      <Route path="/customers/:id" element={<CustomerDetailPage />} />
+      <Route path="/addcategory" element={<AddCategory />} />
+      <Route path="/addproduct" element={<AddProductForm />} />
+      <Route path="/muiintro" element={<MuiIntro />} />
+      <Route path="/gridlayout" element={<GridLayout />} />
+      <Route path="/datagrid" element={<DataGridProducts />} />
+      <Route path="/favorites" element={<FavoritesPage />} />
 
 
 
-        {/* :id url içerisindeki parametreyi temsil eder */}
-        <Route path="/products/:id" element={<ProductDetailPage/>} />
-        <Route path="*" element={<NotFound/>} />
+      {/* :id url içerisindeki parametreyi temsil eder */}
+      <Route path="/products/:id" element={<ProductDetailPage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
 
 
     <footer>Site Footer</footer>
   </>
-
 }
+
 
 export default App

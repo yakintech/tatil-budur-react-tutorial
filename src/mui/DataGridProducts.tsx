@@ -1,12 +1,15 @@
 import { Button } from '@mui/material'
 import { DataGrid, GridColDef, trTR } from '@mui/x-data-grid'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { FavoritesContextType, favContext } from '../context/FavoritesContext'
 
 function DataGridProducts() {
 
     const [products, setproducts] = useState([])
     const [loading, setloading] = useState(true)
+
+    const { favorites, setfavorites } = useContext(favContext) as FavoritesContextType
 
     useEffect(() => {
         loadProducts()
@@ -33,6 +36,34 @@ function DataGridProducts() {
                 console.log(err);
 
             })
+    }
+
+
+    const favOperation = (item: any) => {
+        var product = item.row
+
+        var favControl = favorites.find(q => q.id == product.id)
+
+        if (!favControl) {
+            setfavorites([...favorites, product])
+        }
+        else {
+            var filteredFavorites = favorites.filter(q => q.id != product.id)
+            setfavorites(filteredFavorites)
+        }
+
+    }
+
+
+    const favButtonText = (id: any) => {
+
+        var favControl = favorites.find(q => q.id == id);
+
+        if (!favControl)
+            return "Add To Fav"
+        else
+            return "Remove To Fav"
+
     }
 
 
@@ -73,6 +104,17 @@ function DataGridProducts() {
             headerName: "Delete",
             width: 200,
             renderCell: (item) => <Button onClick={() => deleteProduct(item.id.toString())} variant='contained' color='error'>DELETE</Button>
+        },
+        {
+            field: "Fav",
+            headerName: "Favorites",
+            width: 200,
+            renderCell: (item) => {
+                return <Button
+                    variant='contained'
+                    color='success'
+                    onClick={() => favOperation(item)}>{favButtonText(item.row.id)}</Button>
+            }
         }
     ]
 
