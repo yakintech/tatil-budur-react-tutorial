@@ -10,6 +10,7 @@ import EffectDependency from "./effect/EffectDependency"
 import CategoryPage from "./apiOperations/CategoryPage"
 import CustomersPage from "./apiOperations/CustomersPage"
 import CustomerDetailPage from "./apiOperations/CustomerDetailPage"
+import AddCategory from "./apiOperations/AddCategory"
 
 function App() {
 
@@ -25,8 +26,10 @@ function App() {
         <li><Link to='/contact'>Contact</Link></li>
         <li><Link to='/products'>Products</Link></li>
         <li><Link to='/customers'>Customers</Link></li>
-        <li><a href="/products">Products - 2</a></li>
-        <li><a href="/effectsample">Effect Sample</a></li>
+        <li><Link to='/addcategory'>Add Category</Link></li>
+
+        {/* <li><a href="/products">Products - 2</a></li>
+        <li><a href="/effectsample">Effect Sample</a></li> */}
 
 
 
@@ -42,6 +45,7 @@ function App() {
         <Route path="/categories" element={<CategoryPage/>} />
         <Route path="/customers" element={<CustomersPage/>} />
         <Route path="/customers/:id" element={<CustomerDetailPage/>} />
+        <Route path="/addcategory" element={<AddCategory/>} />
 
         {/* :id url içerisindeki parametreyi temsil eder */}
         <Route path="/products/:id" element={<ProductDetailPage/>} />
