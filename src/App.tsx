@@ -18,11 +18,15 @@ import DataGridProducts from "./mui/DataGridProducts"
 import FavoritesPage from "./context/FavoritesPage"
 import { useContext } from "react"
 import { FavoritesContextType, favContext } from "./context/FavoritesContext"
+import { CartContext, CartContextType } from "./context/CartContext"
+import CartPage from "./context/CartPage"
 
 function App() {
 
 
-  const { favorites, setfavorites } = useContext(favContext) as FavoritesContextType
+  const { favorites } = useContext(favContext) as FavoritesContextType
+  const { cart } = useContext(CartContext) as CartContextType
+
 
   return <>
     <nav>
@@ -39,6 +43,7 @@ function App() {
         <li><Link to='/gridlayout'>MUI Grid Layout</Link></li>
         <li><Link to='/datagrid'>MUI DATA Grid</Link></li>
         <li><Link to='/favorites'>Favorites (<span style={{color:'red'}}>{favorites.length}</span>)</Link></li>
+        <li><Link to='/cart'>Cart (<span style={{color:'red'}}>{cart.length}</span>)</Link></li>
 
         {/* <li><a href="/products">Products - 2</a></li>
         <li><a href="/effectsample">Effect Sample</a></li> */}
@@ -63,6 +68,7 @@ function App() {
       <Route path="/gridlayout" element={<GridLayout />} />
       <Route path="/datagrid" element={<DataGridProducts />} />
       <Route path="/favorites" element={<FavoritesPage />} />
+      <Route path="/cart" element={<CartPage />} />
 
 
 

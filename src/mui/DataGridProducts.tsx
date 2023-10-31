@@ -3,13 +3,15 @@ import { DataGrid, GridColDef, trTR } from '@mui/x-data-grid'
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { FavoritesContextType, favContext } from '../context/FavoritesContext'
+import { CartContext, CartContextType, CartItem } from '../context/CartContext'
 
 function DataGridProducts() {
 
-    const [products, setproducts] = useState([])
+    const [products, setproducts] = useState<Product[]>([])
     const [loading, setloading] = useState(true)
 
     const { favorites, setfavorites } = useContext(favContext) as FavoritesContextType
+    const { cart, setcart } = useContext(CartContext) as CartContextType
 
     useEffect(() => {
         loadProducts()
@@ -66,6 +68,30 @@ function DataGridProducts() {
 
     }
 
+    const addToCart = (item: any) => {
+
+        var product = item as Product;
+
+        //eğer sepette ürün yoksa
+
+        var cartControl = cart.find(q => q.id == product.id)
+
+        if(!cartControl){
+            var newCartItem : CartItem = {
+                id: product.id!,
+                name: product.name!,
+                quantity:1,
+                price: product.unitPrice!
+            }
+
+            setcart([...cart, newCartItem])
+        }
+        else{
+            cartControl.quantity = cartControl.quantity + 1;
+            setcart([...cart])
+        }
+
+    }
 
     const columns: GridColDef[] = [
         {
@@ -81,7 +107,8 @@ function DataGridProducts() {
         {
             field: 'unitPrice',
             headerName: "Price",
-            width: 200
+            width: 200,
+            renderCell: (item: any) => <>{(item.row.unitPrice).toFixed(2)}</>
         },
         {
             field: 'taxPrice',
@@ -115,6 +142,17 @@ function DataGridProducts() {
                     color='success'
                     onClick={() => favOperation(item)}>{favButtonText(item.row.id)}</Button>
             }
+        },
+        {
+            field: "Cart",
+            headerName: "Cart",
+            width: 200,
+            renderCell: (item) => {
+                return <Button
+                    variant='contained'
+                    color='info'
+                    onClick={() => addToCart(item.row)}>Add To Cart</Button>
+            }
         }
     ]
 
@@ -138,3 +176,13 @@ function DataGridProducts() {
 }
 
 export default DataGridProducts
+
+
+
+interface Product{
+    id?:number
+    name?:string
+    unitPrice?:number
+    unitsInStock?: number
+    quantityPerUnit?:string
+}

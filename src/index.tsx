@@ -4,6 +4,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { CounterProvider } from './context/CounterContext';
 import { FavoritesProvider } from './context/FavoritesContext';
+import { CartProvider } from './context/CartContext';
 
 
 
@@ -14,16 +15,20 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <BrowserRouter>
-    <FavoritesProvider>
-      <CounterProvider>
-        <React.StrictMode>
-          <App></App>
-        </React.StrictMode>
-      </CounterProvider>
-    </FavoritesProvider>
-
+    <CartProvider>
+      <FavoritesProvider>
+        <CounterProvider>
+          <React.StrictMode>
+            <App></App>
+          </React.StrictMode>
+        </CounterProvider>
+      </FavoritesProvider>
+    </CartProvider>
   </BrowserRouter>
 
 );
+
+
+
 
 
