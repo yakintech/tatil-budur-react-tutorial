@@ -8,6 +8,8 @@ import ProductDetailPage from "./pages/ProductDetailPage"
 import EffectSample from "./effect/EffectSample"
 import EffectDependency from "./effect/EffectDependency"
 import CategoryPage from "./apiOperations/CategoryPage"
+import CustomersPage from "./apiOperations/CustomersPage"
+import CustomerDetailPage from "./apiOperations/CustomerDetailPage"
 
 function App() {
 
@@ -22,6 +24,7 @@ function App() {
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
         <li><Link to='/products'>Products</Link></li>
+        <li><Link to='/customers'>Customers</Link></li>
         <li><a href="/products">Products - 2</a></li>
         <li><a href="/effectsample">Effect Sample</a></li>
 
@@ -37,6 +40,9 @@ function App() {
         <Route path="/products" element={<ProductsPage/>} />
         <Route path="/effectsample" element={<EffectSample/>} />
         <Route path="/categories" element={<CategoryPage/>} />
+        <Route path="/customers" element={<CustomersPage/>} />
+        <Route path="/customers/:id" element={<CustomerDetailPage/>} />
+
         {/* :id url içerisindeki parametreyi temsil eder */}
         <Route path="/products/:id" element={<ProductDetailPage/>} />
         <Route path="*" element={<NotFound/>} />

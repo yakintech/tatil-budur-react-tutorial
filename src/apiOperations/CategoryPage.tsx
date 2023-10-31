@@ -7,9 +7,6 @@ function CategoryPage() {
     const [loading, setloading] = useState(true)
 
 
-    
-
-
     useEffect(() => {
 
         axios.get("https://northwind.vercel.app/api/categories")
