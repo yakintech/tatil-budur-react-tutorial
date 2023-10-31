@@ -14,6 +14,7 @@ import AddCategory from "./apiOperations/AddCategory"
 import AddProductForm from "./form/AddProductForm"
 import MuiIntro from "./mui/MuiIntro"
 import GridLayout from "./mui/GridLayout"
+import DataGridProducts from "./mui/DataGridProducts"
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
         <li><Link to='/addproduct'>Add Product</Link></li>
         <li><Link to='/muiintro'>MUI Intro</Link></li>
         <li><Link to='/gridlayout'>MUI Grid Layout</Link></li>
+        <li><Link to='/datagrid'>MUI DATA Grid</Link></li>
 
         {/* <li><a href="/products">Products - 2</a></li>
         <li><a href="/effectsample">Effect Sample</a></li> */}
@@ -55,6 +57,7 @@ function App() {
         <Route path="/addproduct" element={<AddProductForm/>} />
         <Route path="/muiintro" element={<MuiIntro/>} />
         <Route path="/gridlayout" element={<GridLayout/>} />
+        <Route path="/datagrid" element={<DataGridProducts/>} />
 
 
 
